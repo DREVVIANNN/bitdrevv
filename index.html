@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DREVVIANN Official Website</title>
+    <title>BitDrevv</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
     <link rel="shortcut icon" href="iowa.png" type="image/x-icon">
@@ -12,7 +12,7 @@
 <body>
 
     <div class="navbar" id="navbar">
-        <span class="logo">BitDrevv.</span>
+        <span class="logo">BitDrevv. BTD</span>
         <div class="hamburger" onclick="toggleMenu()">
             <div class="bar"></div>
             <div class="bar"></div>
@@ -30,26 +30,44 @@
     <div class="content">
         
         <div id="home" class="section">
-            <h2>Mine BitDrevv</h2>
-            <p>Mine BitDrevv and sell it for coins. 1 BitDrevv = 1 Coin.</p>
-            <button class="mine-button" onclick="mineBitDrevv()">Mine BitDrevv</button>
-            <button class="sell-button" onclick="sellBitDrevv()">Sell BitDrevv</button>
-            <p>BitDrevv Balance: <span id="bitdrevv-balance">0</span> BitDrevv</p>
-            <p>Coins Balance: <span id="coins-balance">0</span> Coins</p> </div>
+            <h2>Mine BitDrevv.</h2>
+            <p>Mine BTD and sell it for coins. 1 BTD = 1 <i class="ri-coins-fill"></i></p>
+            <button class="mine-button" onclick="mineBitDrevv()">Mine BTD</button>
+            <button class="sell-button" onclick="sellBitDrevv()">Sell BTD</button>
+            <p>BTD: <span id="bitdrevv-balance">0</span> <i class="ri-copper-diamond-fill"></i></p>
+            <p>Coins: <span id="coins-balance">0</span> <i class="ri-coins-fill"></i></p> 
+
+            <h2>Mine Bitcoin</h2>
+        <p>Mine Bitcoin and sell it for coins. 1 <i class="ri-btc-fill"></i> (Bitcoin) = 50 <i class="ri-coins-fill"></i> (Coins)</p>
+        <button class="mine-button hidden" id="mine-bitcoin" onclick="mineBitcoin()">Mine Bitcoin</button>
+        <button class="sell-button hidden" id="sell-bitcoin" onclick="sellBitcoin()">Sell Bitcoin</button>
+        <button class="buy-button" id="buy-bitcoin" onclick="buyBitcoinMining()">Unlock Bitcoin Mining (10.000 <i class="ri-coins-fill"></i>, 1.000 <i class="ri-copper-diamond-fill"></i>)</button>
+        <p>Bitcoin Balance: <span id="bitcoin-balance">0</span> <i class="ri-btc-fill"></i></p>
+        </div>
+
         <div id="topup" class="section" style="display: none;">
             <h2>Top Up</h2>
-            <p>Fake Money: <span id="fake-money">0</span></p>
-            <p>Coins: <span id="player-coins">0</span></p>
+            <p>Wallets: <span id="fake-money">0</span> <i class="ri-wallet-3-fill"></i></p>
+            <p>Coins: <span id="player-coins">0</span> <i class="ri-coins-fill"></i></p>
+
             <button style="background-color: green; color: white; padding: 10px; border: none; cursor: pointer;" onclick="topUpCoin(1000, 500)">Top Up 500 Coins (Cost: 1000 Fake Money)</button>
+            <p>Description: <b>After Purchasing The Items <span class="items-info">500 Coins Will Added To Your Balance</span> Automatically!</b></p>
+            <button style="background-color: green; color: white; padding: 10px; border: none; cursor: pointer;" onclick="topUpCoin(100, 50)">Top Up 50 Coins (Cost: 100 Fake Money)</button>
+            <p>Description: <b>After Purchasing The Items <span class="items-info">50 Coins Will Added To Your Balance</span> Automatically!</b></p>
             <div id="message" class="message"></div>
         </div>
 
         <div id="shop" class="section" style="display: none;">
             <h2>Shop</h2>
-            <p>Welcome to our shop, in here you can gacha bitcoin or buy stuff and increase your mining</p>
+            <p>Welcome to our shop, in here you buy any items with coins and increase your mining BitDrevv!.</p>
             <div class="shop-item">
-                <p>2X BitDrevv (Permanent) - 1000 Coins</p>
-                <button id="buy-2x" class="buy-button" onclick="buyMultiplier(2, 1000)">Buy 2x BitDrevv Multiplier (1000 Coins)</button>
+                <h2>Buy 2X BTD</h2>
+                <p><b><span class="items-info">2X BTD (Permanent)</span> - 5.000 Coins</b></p>
+                <button id="buy-2x" class="buy-button" onclick="buyMultiplier(2, 5000)">Buy DREVVIANN 2X Clicker! (5.000 Coins)</button>
+
+                <h2>Buy Auto Mining</h2>
+        <p>Enable auto-mining for 6500 Coins and 500 BitDrevv.</p>
+        <button class="buy-button" id="buy-auto-mining" onclick="buyAutoMining()">Buy Auto Mining (6500 Coins, 500 BitDrevv)</button>
             </div>
         </div>
 
@@ -61,19 +79,43 @@
         </div>
 
         <div id="quest" class="section" style="display: none;">
-            <h2>First Quest</h2>
+            <h2 id="quest-title">First Quest</h2>
             <p>Make 1000 BitDrevv to complete this quest.</p>
-            <p>Reward: 100 Fake Money and 500 Coins</p>
-            <button id="claim-reward" onclick="claimReward()" disabled>Claim Reward</button>
+            <p>Reward: 100 Fake Money and 500 Coins <br> <br> <b>Quest By: DREVVIANN <svg title="Verified User" class="v723er9003ui3e9f9f09d922items" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10.007 2.10377C8.60544 1.65006 7.08181 2.28116 6.41156 3.59306L5.60578 5.17023C5.51004 5.35763 5.35763 5.51004 5.17023 5.60578L3.59306 6.41156C2.28116 7.08181 1.65006 8.60544 2.10377 10.007L2.64923 11.692C2.71404 11.8922 2.71404 12.1078 2.64923 12.308L2.10377 13.993C1.65006 15.3946 2.28116 16.9182 3.59306 17.5885L5.17023 18.3942C5.35763 18.49 5.51004 18.6424 5.60578 18.8298L6.41156 20.407C7.08181 21.7189 8.60544 22.35 10.007 21.8963L11.692 21.3508C11.8922 21.286 12.1078 21.286 12.308 21.3508L13.993 21.8963C15.3946 22.35 16.9182 21.7189 17.5885 20.407L18.3942 18.8298C18.49 18.6424 18.6424 18.49 18.8298 18.3942L20.407 17.5885C21.7189 16.9182 22.35 15.3946 21.8963 13.993L21.3508 12.308C21.286 12.1078 21.286 11.8922 21.3508 11.692L21.8963 10.007C22.35 8.60544 21.7189 7.08181 20.407 6.41156L18.8298 5.60578C18.6424 5.51004 18.49 5.35763 18.3942 5.17023L17.5885 3.59306C16.9182 2.28116 15.3946 1.65006 13.993 2.10377L12.308 2.64923C12.1078 2.71403 11.8922 2.71404 11.692 2.64923L10.007 2.10377ZM6.75977 11.7573L8.17399 10.343L11.0024 13.1715L16.6593 7.51465L18.0735 8.92886L11.0024 15.9999L6.75977 11.7573Z"></path></svg></b></p>
+            <button id="claim-reward" class="claim-reward-button" onclick="claimReward()" disabled>Claim Reward</button>
+
+            <h2 id="quest2-title">Second Quest</h2>
+            <p>Make 5000 BitDrevv and 10000 Coins to complete this quest.</p>
+            <p>Reward: 500 Fake Money and 500 Coins <br> <br> <b>Quest By: DREVVIANN <svg title="Verified User" class="v723er9003ui3e9f9f09d922items" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10.007 2.10377C8.60544 1.65006 7.08181 2.28116 6.41156 3.59306L5.60578 5.17023C5.51004 5.35763 5.35763 5.51004 5.17023 5.60578L3.59306 6.41156C2.28116 7.08181 1.65006 8.60544 2.10377 10.007L2.64923 11.692C2.71404 11.8922 2.71404 12.1078 2.64923 12.308L2.10377 13.993C1.65006 15.3946 2.28116 16.9182 3.59306 17.5885L5.17023 18.3942C5.35763 18.49 5.51004 18.6424 5.60578 18.8298L6.41156 20.407C7.08181 21.7189 8.60544 22.35 10.007 21.8963L11.692 21.3508C11.8922 21.286 12.1078 21.286 12.308 21.3508L13.993 21.8963C15.3946 22.35 16.9182 21.7189 17.5885 20.407L18.3942 18.8298C18.49 18.6424 18.6424 18.49 18.8298 18.3942L20.407 17.5885C21.7189 16.9182 22.35 15.3946 21.8963 13.993L21.3508 12.308C21.286 12.1078 21.286 11.8922 21.3508 11.692L21.8963 10.007C22.35 8.60544 21.7189 7.08181 20.407 6.41156L18.8298 5.60578C18.6424 5.51004 18.49 5.35763 18.3942 5.17023L17.5885 3.59306C16.9182 2.28116 15.3946 1.65006 13.993 2.10377L12.308 2.64923C12.1078 2.71403 11.8922 2.71404 11.692 2.64923L10.007 2.10377ZM6.75977 11.7573L8.17399 10.343L11.0024 13.1715L16.6593 7.51465L18.0735 8.92886L11.0024 15.9999L6.75977 11.7573Z"></path></svg></b></p>
+            <button id="claim-reward2" class="claim-reward-button" onclick="claimReward2()" disabled>Claim Reward</button>
+
+            <h2 id="quest3-title">Third Quest</h2>
+            <p>Find an Azure Shard in the mining place.</p>
+            <p>Reward: 200 Fake Money and 500 Coins <br> <br> <b>Quest By: Muisena</b></p>
+            <button id="claim-reward3" class="claim-reward-button" onclick="claimReward3()" disabled>Claim Reward</button>
+            <button id="go-to-mine" class="claim-reward-button enabled" onclick="goToMine()">Go to Mine</button>
+        </div>
+
+        <div id="mine" class="mine-container" style="display: none;">
+            <img src="iowa.png" alt="User" class="player" id="player">
+            <img id="azure-shard" class="azure-shard" src="ArchonShard.webp" alt="">
+            <div class="controls-container" id="controls" style="display: none;">
+                <button onclick="movePlayer('up')">Up</button>
+                <div>
+                    <button onclick="movePlayer('left')">Left</button>
+                    <button onclick="movePlayer('down')">Down</button>
+                    <button onclick="movePlayer('right')">Right</button>
+                </div>
+            </div>
         </div>
 
         <div id="credits" class="section" style="display: none;">
             <h2>Developer :</h2>
-            <p><b>DREVVIANN <svg class="verified" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10.007 2.10377C8.60544 1.65006 7.08181 2.28116 6.41156 3.59306L5.60578 5.17023C5.51004 5.35763 5.35763 5.51004 5.17023 5.60578L3.59306 6.41156C2.28116 7.08181 1.65006 8.60544 2.10377 10.007L2.64923 11.692C2.71404 11.8922 2.71404 12.1078 2.64923 12.308L2.10377 13.993C1.65006 15.3946 2.28116 16.9182 3.59306 17.5885L5.17023 18.3942C5.35763 18.49 5.51004 18.6424 5.60578 18.8298L6.41156 20.407C7.08181 21.7189 8.60544 22.35 10.007 21.8963L11.692 21.3508C11.8922 21.286 12.1078 21.286 12.308 21.3508L13.993 21.8963C15.3946 22.35 16.9182 21.7189 17.5885 20.407L18.3942 18.8298C18.49 18.6424 18.6424 18.49 18.8298 18.3942L20.407 17.5885C21.7189 16.9182 22.35 15.3946 21.8963 13.993L21.3508 12.308C21.286 12.1078 21.286 11.8922 21.3508 11.692L21.8963 10.007C22.35 8.60544 21.7189 7.08181 20.407 6.41156L18.8298 5.60578C18.6424 5.51004 18.49 5.35763 18.3942 5.17023L17.5885 3.59306C16.9182 2.28116 15.3946 1.65006 13.993 2.10377L12.308 2.64923C12.1078 2.71403 11.8922 2.71404 11.692 2.64923L10.007 2.10377ZM6.75977 11.7573L8.17399 10.343L11.0024 13.1715L16.6593 7.51465L18.0735 8.92886L11.0024 15.9999L6.75977 11.7573Z"></path></svg></b></p>
+            <p><b>DREVVIANN <svg title="Verified User" class="v723er9003ui3e9f9f09d922items" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10.007 2.10377C8.60544 1.65006 7.08181 2.28116 6.41156 3.59306L5.60578 5.17023C5.51004 5.35763 5.35763 5.51004 5.17023 5.60578L3.59306 6.41156C2.28116 7.08181 1.65006 8.60544 2.10377 10.007L2.64923 11.692C2.71404 11.8922 2.71404 12.1078 2.64923 12.308L2.10377 13.993C1.65006 15.3946 2.28116 16.9182 3.59306 17.5885L5.17023 18.3942C5.35763 18.49 5.51004 18.6424 5.60578 18.8298L6.41156 20.407C7.08181 21.7189 8.60544 22.35 10.007 21.8963L11.692 21.3508C11.8922 21.286 12.1078 21.286 12.308 21.3508L13.993 21.8963C15.3946 22.35 16.9182 21.7189 17.5885 20.407L18.3942 18.8298C18.49 18.6424 18.6424 18.49 18.8298 18.3942L20.407 17.5885C21.7189 16.9182 22.35 15.3946 21.8963 13.993L21.3508 12.308C21.286 12.1078 21.286 11.8922 21.3508 11.692L21.8963 10.007C22.35 8.60544 21.7189 7.08181 20.407 6.41156L18.8298 5.60578C18.6424 5.51004 18.49 5.35763 18.3942 5.17023L17.5885 3.59306C16.9182 2.28116 15.3946 1.65006 13.993 2.10377L12.308 2.64923C12.1078 2.71403 11.8922 2.71404 11.692 2.64923L10.007 2.10377ZM6.75977 11.7573L8.17399 10.343L11.0024 13.1715L16.6593 7.51465L18.0735 8.92886L11.0024 15.9999L6.75977 11.7573Z"></path></svg></b></p>
             <h2>Members :</h2>
             <ul>
-                <li>Shabran</li>
-                <li>Faisal</li>
+                <li>Shabran 🛠</li>
+                <li>Faisal 🛠</li>
             </ul>
 
             <h2>Game Rules :</h2>
@@ -90,9 +132,24 @@
 
         <h2>Story of BitDrevv Mining</h2>
         <p>In the year 2045, a new digital currency known as BitDrevv emerged, promising a decentralized economy free from traditional banks. As a miner, your goal is to collect as much BitDrevv as possible, sell it for coins, and upgrade your mining capabilities. The journey won't be easy—competition is fierce, and only the most dedicated miners will rise to the top.</p>
+
+        <h2>Admin Panel</h2>
+        <button class="admin-button" onclick="promptPassword()">Open Admin Panel</button>
+        <div id="admin-panel" class="hidden">
+            <h3>Modify Values</h3>
+            <label>Coins: <input type="number" id="admin-coins" value="0"></label>
+            <button class="ban-button" onclick="banUser()">Ban Admin</button>
+            <button class="admin-button" onclick="updateAdminValues()">Update</button>
+        </div>
+
+        <br> <br>
+
+        <button class="reset-button" onclick="resetProgress()">Reset Progress</button>
+
+        <img src="iowa.png" alt="PT IOWA FAMILIA" class="iowa">
         </div>
     </div>
-    <div class="footer" id="footer">&copy; 2025 DREVVIANN. All Rights Reserved.</div>
+    <div class="footer" id="footer">&copy; 2025 PT IOWA DV. All Rights Reserved.</div>
 
     <script src="script.js"></script>
 </body>
